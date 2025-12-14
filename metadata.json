@@ -1,0 +1,8 @@
+{
+  "name": "road violition detection",
+  "description": "Real-time video environment summarization using Gemini Live API",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
