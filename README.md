@@ -1,20 +1,73 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Gemini Traffic Sentinel 🚦
 
-# Run and deploy your AI Studio app
+An AI-powered traffic violation detection system that leverages Google's Gemini 2.5 Flash model to analyze traffic feeds, identify violations, and automate penalty enforcement via email notifications.
 
-This contains everything you need to run your app locally.
+[![YouTube Demo](https://img.shields.io/badge/Watch_Demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/OsikvFCnkg8)
 
-View your app in AI Studio: https://ai.studio/apps/drive/1q83H5ZGqS1Rv_1vCeQS0ppWlhC6MP4mS
+![Workflow Diagram](./project_diagrams/workflow%20diagram.png)
 
-## Run Locally
+## 🌟 Features
 
-**Prerequisites:**  Node.js
+*   **AI-Powered Detection**: Uses Google Gemini 2.5 Flash to analyze images/video frames for traffic violations (e.g., no helmet, signal jump, triple riding).
+*   **Automated Evidence Storage**: Uploads violation snapshots to **Cloudinary** securely.
+*   **Smart Deduplication**: Prevents duplicate violation recording for the same vehicle and crime type within a 2-hour window.
+*   **Instant Notifications**: Integrates with **EmailJS** to send instant violation notices with evidence links to vehicle owners.
+*   **Secure Database**: Stores all violation records and user data in **Firebase Firestore**.
+*   **Authentication**: Secure login system using **Firebase Authentication**.
 
+## 🛠️ Tech Stack
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+*   **Frontend**: React, Vite, TypeScript
+*   **AI Model**: Google Gemini 2.5 Flash (gemini-2.5-flash-native-audio-preview-09-2025)
+*   **Backend/BaaS**: Firebase (Auth, Firestore)
+*   **Storage**: Cloudinary
+*   **Notifications**: EmailJS
+
+## 🚀 Getting Started
+
+### Prerequisites
+*   Node.js installed
+*   API Keys for Google Gemini, Firebase, Cloudinary, and EmailJS
+
+### Installation
+
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/AxilBlaze/Gemini_Traffic_sentinel.git
+    cd Gemini_Traffic_sentinel
+    ```
+
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+
+3.  Configure Environment Variables:
+    Copy the example env file and fill in your credentials.
+    ```bash
+    cp .env.example .env
+    ```
+    
+    Update `.env` with your keys:
+    *   `VITE_CLOUDINARY_*`: For image storage.
+    *   `VITE_FIREBASE_*`: For database and auth.
+    *   `VITE_EMAILJS_*`: For sending emails.
+    *   `GEMINI_API_KEY`: For AI analysis.
+
+4.  Run the application:
+    ```bash
+    npm run dev
+    ```
+
+## 📂 Workflow
+
+1.  **Input**: Traffic feed (camera/image) is captured.
+2.  **Analysis**: The image is sent to the Gemini AI model.
+3.  **Detection**: If a violation is detected, the AI extracts details (Vehicle No, Violation Type).
+4.  **Verification**: System checks for duplicates in Firestore (2-hour cooldown).
+5.  **Storage**: Evidence image is uploaded to Cloudinary; Record saved to Firestore.
+6.  **Action**: Email notification is triggered to the registered owner.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
