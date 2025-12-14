@@ -2,7 +2,7 @@
 
 An AI-powered traffic violation detection system that leverages Google's Gemini 2.5 Flash model to analyze traffic feeds, identify violations, and automate penalty enforcement via email notifications.
 
-[![YouTube Demo](https://img.shields.io/badge/Watch_Demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/OsikvFCnkg8)
+[![Watch the Demo](https://img.youtube.com/vi/OsikvFCnkg8/maxresdefault.jpg)](https://youtu.be/OsikvFCnkg8)
 
 ![Workflow Diagram](./project_diagrams/workflow%20diagram.png)
 
